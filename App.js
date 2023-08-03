@@ -1,13 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-gesture-handler';
 import { StyleSheet, Text, View } from 'react-native';
+import StackNav from './Navigators/StackNavigator';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Wladimir Tierra </Text>
-      <StatusBar style="auto" />
-    </View>
+    <StackNav/>
   );
 }
 
