@@ -1,24 +1,67 @@
-import { View, Text, ImageBackground, StyleSheet, Image,TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, ImageBackground, StyleSheet, Image,TextInput, TouchableOpacity, Alert } from 'react-native'
+import React, { useState } from 'react'
 
 export default function RegisterScreen({navigation}) {
+
+    console.log(registros)
+
+    const [user, setuser] = useState('')
+    const [email, setemail] = useState('')
+    const [url, seturl] = useState('')
+    const [pass, setpass] = useState('')
+    const [pass2, setpass2] = useState('')
+
+    const [cuenta, setcuenta] = useState()
+
+    const [registros, setregistros] = useState([])
 
     function navigateLogin() {
         navigation.navigate('LoginStack')
     }
+
+    function registrar(user,email,url,pass,pass2){
+
+        if(pass == pass2){
+            
+            let temp=[...registros,{user,email,url,pass}]
+            setregistros(temp)
+            setuser('')
+            setemail('')
+            seturl('')
+            setpass('')
+            setpass2('')
+
+
+        }else{
+            Alert.alert("ADVERTENCIA","los campos de password deben ser iguales")
+        }
+    }
+
+   
   return (
     <ImageBackground style={styles.container} source={require('../assets/images/fondo2.jpg')}>
     <Text style={{fontSize:40, color:'white'}}> Create Account</Text>
     <Image style={styles.imageprofile} source={require('../assets/images/usuariodefault.jpg')} ></Image>
-    <TextInput style={styles.txtInput}  placeholder='Nombre'></TextInput>
-    <TextInput  style={styles.txtInput} placeholder='Apellido'></TextInput>
-    <TextInput  style={styles.txtInput} placeholder='Correo'></TextInput>
-    <TextInput  style={styles.txtInput} placeholder='Contraseña' secureTextEntry></TextInput>
-    <TextInput  style={styles.txtInput} placeholder='Repita la contraseña' secureTextEntry></TextInput>
+    <TextInput style={styles.txtInput}  placeholder='Usuario'
+    onChangeText={(text)=>setuser(text)}
+    value={user}></TextInput>
+    <TextInput  style={styles.txtInput} placeholder='Correo'
+    onChangeText={(text)=>setemail(text)} 
+    value={email}></TextInput>
+    <TextInput  style={styles.txtInput} placeholder='Url imagen'
+    onChangeText={(text)=>seturl(text)}
+    value={url}></TextInput>
+    <TextInput  style={styles.txtInput} placeholder='Contraseña' secureTextEntry
+    onChangeText={(text)=>setpass(text)}
+    value={pass}></TextInput>
+    <TextInput  style={styles.txtInput} placeholder='Repita la contraseña' secureTextEntry
+    onChangeText={(text)=>setpass2(text)}
+    value={pass2}></TextInput>
 
-    <TouchableOpacity style={styles.buttonEnter} onPress={()=>(navigateLogin())}>
+    <TouchableOpacity style={styles.buttonEnter} onPress={()=>(registrar(user,email,url,pass,pass2))}>
         <Text style={styles.txtButon}>Registrarse</Text>
     </TouchableOpacity>
+   
 </ImageBackground>
 
 

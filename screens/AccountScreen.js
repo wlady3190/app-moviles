@@ -6,7 +6,9 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function AccountScreen() {
+
+export default function AccountScreen(prop) {
+    
   return (
     <View style={styles.container}>
 
