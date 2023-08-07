@@ -1,32 +1,43 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import MainNavigation from '../Navigators/MainNavigator';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function OptionsLoginScreen() {
     return (
-        <View style={styles.container}>
-            <Text>
-                Bienvenidos a la tienda virtual
-            </Text>
-            <View style={styles.containerImg}>
+        <ScrollView>
 
 
-                <Image style={styles.img} source={require('../assets/images/imagenhome1.png')} />
-                <Text style={styles.txt}>
-                    Nuestra empresa se dedica a la compra y ventra de motos, actualmente contamos con una sucursal en la ciuda de Quito.
+            <View style={styles.container}>
+                <Text style={styles.title}>
+                    Nosotros
                 </Text>
 
+
+                <View style={styles.container}>
+                    <View style={styles.section}>
+                        <Image source={require('../assets/images/imagenhome1.png')} style={styles.image} />
+                        <Text style={styles.title}>Misión</Text>
+                        <Text style={styles.description}>
+                            Nuestra misión es proporcionar a nuestros clientes las mejores motocicletas y accesorios
+                            de alta calidad, brindando un excelente servicio y garantizando la satisfacción total del
+                            cliente.
+                        </Text>
+                    </View>
+
+                    <View style={styles.section}>
+                        <Image source={require('../assets/images/imagenhome2.png')} style={styles.image} />
+                        <Text style={styles.title}>Visión</Text>
+                        <Text style={styles.description}>
+                            Ser la empresa líder en la industria de motocicletas, reconocida por su calidad,
+                            innovación y compromiso con el cliente, y expandir nuestra presencia a nivel nacional e
+                            internacional.
+                        </Text>
+                    </View>
+                </View>
+
             </View>
-            <View style={styles.containerImg}>
-
-                <Text style={styles.txt}>
-                    Contamos con motos nacionales e internacionales, así como accesorios para todos los gustos
-                </Text>
-                <Image style={styles.img} source={require('../assets/images/imagenhome2.png')} />
-
-            </View>
-
-        </View>
+        </ScrollView>
 
     )
 }
@@ -34,26 +45,31 @@ export default function OptionsLoginScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#ccc',
+        padding: 16,
+        backgroundColor: '#f0f0f0',
+        alignContent: 'center',
+        justifyContent: 'center'
     },
-    containerImg: {
-        flexDirection: 'row',
-        alignItems: 'center',
+    section: {
         marginBottom: 20,
-    },
-    img: {
-        width: 100,
-        height: 150,
+        backgroundColor: '#fff',
         borderRadius: 8,
-        marginRight: 20,
-        backgroundColor: '#ccc',
+        padding: 16,
     },
-    txt: {
-        flex: 1,
-
-        color: 'white',
+    image: {
+        width: '100%',
+        height: 200,
+        borderRadius: 8,
+        marginBottom: 8,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 8,
+        alignSelf:'center'
+    },
+    description: {
         fontSize: 16,
+        color: '#333',
     },
 });
