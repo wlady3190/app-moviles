@@ -3,8 +3,9 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput, ImageBackgr
 
 
 export default function LoginScreen  ({navigation})  {
+  
   const handleLogin = () => {
-    navigation.navigate('')
+    navigation.navigate('NavStack')
     // Implement login functionality here.
   };
 
