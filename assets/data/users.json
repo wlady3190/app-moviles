@@ -1,0 +1,38 @@
+[
+    {
+      "username": "Fry",
+      "email": "user1@example.com",
+      "age": 25,
+      "password": "password1",
+      "profileImage": "https://i.pinimg.com/originals/dd/1f/8f/dd1f8f344b5e8acc8c26ecf0fb8e32e2.png"
+    },
+    {
+      "username": "Bender",
+      "email": "user2@example.com",
+      "age": 30,
+      "password": "password2",
+      "profileImage": "https://www.pngmart.com/files/15/Bender-Futurama-PNG.png"
+    },
+    {
+      "username": "Leela",
+      "email": "user3@example.com",
+      "age": 22,
+      "password": "password3",
+      "profileImage": "https://cdn.pixabay.com/photo/2018/10/19/06/21/turanga-leela-3757930_1280.png"
+    },
+    {
+      "username": "Farnsworth",
+      "email": "user4@example.com",
+      "age": 28,
+      "password": "password4",
+      "profileImage": "https://static.wikia.nocookie.net/futuramabeta/images/f/f2/Profesor_Hubert_Farnsworth.gif/revision/latest/scale-to-width-down/255?cb=20091019190447&path-prefix=es"
+    },
+    {
+      "username": "Zoiberg",
+      "email": "user5@example.com",
+      "age": 35,
+      "password": "password5",
+      "profileImage": "https://www.pngmart.com/files/8/Futurama-PNG-HD-Quality.png"
+    }
+  ]
+  
