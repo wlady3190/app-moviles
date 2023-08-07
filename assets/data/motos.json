@@ -1,0 +1,29 @@
+[
+    {
+      "id": 1,
+      "modelo": "Kawasaki",
+      "marca": "Marca 1",
+      "anio": "2022",
+      "descripcion": "Descripción del modelo 1",
+      "imagen": "https://web2.fireboldweb.com/wp-content/uploads/2023/04/250420231682430039Kawasaki_Ninja400KRT-MY23-foto1.png"
+    }
+    ,
+    {
+      "id": 2,
+      "modelo": "Yamaha",
+      "marca": "Marca 2",
+      "anio": "2021",
+      "descripcion": "Descripción del modelo 2",
+      "imagen": "https://storage.googleapis.com/sspe-blnc-rscs/00000CB1/PNG/especificaciones-XTZ-250-Azul.png"
+    },
+    
+    {
+      "id": 3,
+      "modelo": "Susuki",
+      "marca": "Marca 3",
+      "anio": "2023",
+      "descripcion": "Descripción del modelo 3",
+      "imagen": "https://suzukimotosmich.com/assets/images/content/products/gsx-r1000r/gsx-r1000r.png"
+    }
+ 
+  ]
