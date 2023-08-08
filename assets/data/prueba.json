@@ -1,0 +1,20 @@
+[
+  {
+    "email": "user5@example.com",
+    "pass": "password5",
+    "url": "https://www.pngmart.com/files/8/Futurama-PNG-HD-Quality.png",
+    "user": "Zoiiberg"
+  },
+  {
+    "email": "user1@example.com",
+    "pass": "password1",
+    "url": "https://i.pinimg.com/originals/dd/1f/8f/dd1f8f344b5e8acc8c26ecf0fb8e32e2.png",
+    "user": "Fry"
+  },
+  {
+    "email": "user2@example.com",
+    "pass": "password2",
+    "url": "https://www.pngmart.com/files/15/Bender-Futurama-PNG.png",
+    "user": "Bender"
+  }
+]
