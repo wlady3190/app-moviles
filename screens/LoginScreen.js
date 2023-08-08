@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput, ImageBackground } from 'react-native';
-
+import userJSON from '../assets/data/users.json'; 
 
 export default function LoginScreen  ({navigation})  {
+
+
+  const [user, setuser] = useState('')
+  const [pass, setpass] = useState('')
+
+  const [lista, setlista] = useState(userJSON)
+
+
+
+ 
+
+  function login(usuario,pass){
+
+    for(let item of lista){
+        if(usuario == item.username){
+            if(pass == item.password){
+              handleLogin();
+                
+            }else{
+                
+            }
+        }else{
+            
+            
+        }
+
+
+    }
+
+}
+  
   
   const handleLogin = () => {
     navigation.navigate('NavStack')
@@ -22,9 +53,10 @@ export default function LoginScreen  ({navigation})  {
 
       <TextInput
         style={styles.input}
-        placeholder="Correo electrónico"
-        keyboardType="email-address"
+        placeholder="Usuario"
+        
         autoCapitalize="none"
+        onChangeText={(text)=>setuser(text)}
       />
 
       <TextInput
@@ -32,9 +64,10 @@ export default function LoginScreen  ({navigation})  {
         placeholder="Contraseña"
         secureTextEntry
         autoCapitalize="none"
+        onChangeText={(text)=>setpass(text)}
       />
 
-      <TouchableOpacity style={styles.button} onPress={()=>handleLogin()}>
+      <TouchableOpacity style={styles.button} onPress={()=>login(user,pass)}>
         <Text style={styles.buttonText}>Iniciar sesión</Text>
       </TouchableOpacity>
 
