@@ -1,29 +1,77 @@
 [
     {
       "id": 1,
-      "modelo": "Kawasaki",
-      "marca": "Marca 1",
+      "modelo": "NINJA 400",
+      "marca": "Kwasaki",
       "anio": "2022",
-      "descripcion": "Descripción del modelo 1",
-      "imagen": "https://web2.fireboldweb.com/wp-content/uploads/2023/04/250420231682430039Kawasaki_Ninja400KRT-MY23-foto1.png"
+      "descripcion": "La Ninja 400 se destaca por su diseño agresivo, rendimiento mejorado y características técnicas modernas.",
+      "imagen": "https://web2.fireboldweb.com/wp-content/uploads/2023/04/250420231682430039Kawasaki_Ninja400KRT-MY23-foto1.png",
+      "precio":25000
     }
     ,
     {
       "id": 2,
-      "modelo": "Yamaha",
-      "marca": "Marca 2",
+      "modelo": "XTZ 250",
+      "marca": "Yamaha",
       "anio": "2021",
-      "descripcion": "Descripción del modelo 2",
-      "imagen": "https://storage.googleapis.com/sspe-blnc-rscs/00000CB1/PNG/especificaciones-XTZ-250-Azul.png"
+      "descripcion": "Motocicleta todoterreno diseñada para la aventura y el uso fuera de carretera. ",
+      "imagen": "https://storage.googleapis.com/sspe-blnc-rscs/00000CB1/PNG/especificaciones-XTZ-250-Azul.png",
+      "precio":15000
     },
     
     {
       "id": 3,
-      "modelo": "Susuki",
-      "marca": "Marca 3",
+      "modelo": "GSX-250",
+      "marca": "Susuki",
       "anio": "2023",
-      "descripcion": "Descripción del modelo 3",
-      "imagen": "https://suzukimotosmich.com/assets/images/content/products/gsx-r1000r/gsx-r1000r.png"
+      "descripcion": "Una motocicleta deportiva de tamaño pequeño que está diseñada para brindar una experiencia deportiva y emocionante para pilotos novatos",
+      "imagen": "https://suzukimotosmich.com/assets/images/content/products/gsx-r1000r/gsx-r1000r.png",
+      "precio":28000
+    },
+    {
+      "id": 4,
+      "modelo": "GSX-S150",
+      "marca": "Susuki",
+      "anio": "2023",
+      "descripcion": "Ofrece un diseño deportivo, combinado con un enfoque en la practicidad y la maniobrabilidad en la conducción urbana y en carreteras locales.",
+      "imagen": "https://motos.colmotors.com/wp-content/uploads/2022/09/PERSPECTIVA-GSX-S-150-AZUL-e1664298700139.png",
+      "precio":16500
+    },
+    {
+      "id": 5,
+      "modelo": "RC 390",
+      "marca": "KTM",
+      "anio": "2023",
+      "descripcion": "Ofrece una experiencia emocionante en carretera y en pista con undiseño agresivo, rendimiento potente y tecnología avanzada.",
+      "imagen": "https://azwecdnepstoragewebsiteuploads.azureedge.net/PHO_BIKE_PERS_LIVO_RC390-ORANGE-MY23-Front-Left-MY23-Studio_%23SALL_%23AEPI_%23V1.png",
+      "precio":27000
+    },
+    {
+      "id": 6,
+      "modelo": "XR150L",
+      "marca": "Honda",
+      "anio": "2023",
+      "descripcion": "Nada podrá detenerte. Ni el asfalto, ni el lastre o el barro. La calidad que se espera de una Honda, respondiendo cada vez que vayas a algún lugar.",
+      "imagen": "https://motos.honda.com.ec/uploads/images/products/Destacado-XR190L%20(1).png",
+      "precio":5600
+    },
+    {
+      "id": 7,
+      "modelo": "ROAD ",
+      "marca": "Harley Davidson",
+      "anio": "2023",
+      "descripcion": "Nuestra tradición tiene un lado oscuro. Estás ante su máximo representante. La mejor potencia y una apariencia oscurecida que acaparará todas las miradas.",
+      "imagen": "https://cdn.room58.com/2023/04/29/8c3d805d43b3bb2f9e5d541d9d215f7e_afe812e1f908923d.webp",
+      "precio":68000
+    },
+    {
+      "id": 8,
+      "modelo": "DIAVEL 1260 LAMBORGHINI",
+      "marca": "Ducati",
+      "anio": "2023",
+      "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+      "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+      "precio":110000
     }
  
   ]

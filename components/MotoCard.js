@@ -10,6 +10,7 @@ const MotoCard = ({ item }) => {
         <Text style={styles.marca}>{item.marca}</Text>
         <Text style={styles.anio}>{item.anio}</Text>
         <Text style={styles.descripcion}>{item.descripcion}</Text>
+        <Text style={styles.descripcion}>Precio: {item.precio}$</Text>
       </View>
       <TouchableOpacity style={styles.addToCartButton}>
         <Text style={styles.addToCartButtonText}>Añadir al carrito</Text>
