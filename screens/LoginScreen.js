@@ -1,40 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput, ImageBackground } from 'react-native';
-import userJSON from '../assets/data/users.json'; 
+import userJSON from '../assets/data/users.json';
+import * as FileSystem from 'expo-file-system'
 
-export default function LoginScreen  ({navigation})  {
+export default function LoginScreen({ navigation }) {
 
 
   const [user, setuser] = useState('')
   const [pass, setpass] = useState('')
 
-  const [lista, setlista] = useState(userJSON)
+  const [lista, setlista] = useState([])
 
+  useEffect(() => {
+    cargar()
+  }, [])
 
+  console.log(lista);
 
- 
+  function login(usuario, pass) {
 
-  function login(usuario,pass){
+    for (let item of lista) {
+      if (usuario == item.username) {
+        if (pass == item.pass) {
+          handleLogin();
 
-    for(let item of lista){
-        if(usuario == item.username){
-            if(pass == item.password){
-              handleLogin();
-                
-            }else{
-                
-            }
-        }else{
-            
-            
+        } else {
+
         }
+      } else {
+
+
+      }
 
 
     }
 
-}
-  
-  
+  }
+
+  const cargar = async () => {
+    try {
+      const file = `${FileSystem.documentDirectory}usuarios.json`
+      const existe = await FileSystem.getInfoAsync(file)
+      if (existe.exists) {
+        const contenido = await FileSystem.readAsStringAsync(file)
+        const datos = JSON.parse(contenido)
+        setlista(datos)
+        console.log(datos);
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+
   const handleLogin = () => {
     navigation.navigate('NavStack')
     // Implement login functionality here.
@@ -47,16 +67,16 @@ export default function LoginScreen  ({navigation})  {
   };
 
   return (
-    <ImageBackground style={styles.container} source={require('../assets/images/fondo2.jpg') }>
+    <ImageBackground style={styles.container} source={require('../assets/images/fondo2.jpg')}>
       <Image source={require('../assets/images/logo1.png')} style={styles.logo} />
       <Text style={styles.txtSlogan}>AMERICAN MOTORS</Text>
 
       <TextInput
         style={styles.input}
         placeholder="Usuario"
-        
+
         autoCapitalize="none"
-        onChangeText={(text)=>setuser(text)}
+        onChangeText={(text) => setuser(text)}
       />
 
       <TextInput
@@ -64,10 +84,10 @@ export default function LoginScreen  ({navigation})  {
         placeholder="Contraseña"
         secureTextEntry
         autoCapitalize="none"
-        onChangeText={(text)=>setpass(text)}
+        onChangeText={(text) => setpass(text)}
       />
 
-      <TouchableOpacity style={styles.button} onPress={()=>login(user,pass)}>
+      <TouchableOpacity style={styles.button} onPress={() => login(user, pass)}>
         <Text style={styles.buttonText}>Iniciar sesión</Text>
       </TouchableOpacity>
 
@@ -101,7 +121,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    color:'#67cf6a'
+    color: '#67cf6a'
   },
   input: {
     width: '100%',
