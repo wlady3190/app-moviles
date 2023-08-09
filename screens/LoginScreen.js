@@ -8,8 +8,22 @@ export default function LoginScreen({ navigation }) {
 
   const [user, setuser] = useState('')
   const [pass, setpass] = useState('')
-
+  const [cuenta, setcuenta] = useState([])
   const [lista, setlista] = useState([])
+console.log(cuenta)
+const guardar=async()=>{
+try {
+  const file = `${FileSystem.documentDirectory}cuenta.json`
+  await FileSystem.writeAsStringAsync(file, JSON.stringify(cuenta))
+  console.log("datos guardados")
+
+
+} catch (error) {
+  console.log(error)
+}
+}
+
+
 
   useEffect(() => {
     cargar()
@@ -23,7 +37,8 @@ export default function LoginScreen({ navigation }) {
       if (usuario == item.user) {
         if (pass == item.pass) {
           handleLogin();
-
+          setcuenta([...cuenta, {usuario,pass}]);
+          guardar();
         } else {
 
         }
