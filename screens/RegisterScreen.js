@@ -65,6 +65,7 @@ export default function RegisterScreen({ navigation }) {
             setpass('')
             setpass2('')
             guardar()
+            guardar()
             navigateLogin()
         } else {
             Alert.alert("ADVERTENCIA", "los campos de password deben ser iguales")

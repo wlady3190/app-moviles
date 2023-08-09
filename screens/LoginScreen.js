@@ -20,7 +20,7 @@ export default function LoginScreen({ navigation }) {
   function login(usuario, pass) {
 
     for (let item of lista) {
-      if (usuario == item.username) {
+      if (usuario == item.user) {
         if (pass == item.pass) {
           handleLogin();
 
