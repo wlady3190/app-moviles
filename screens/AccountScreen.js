@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import * as FileSystem from 'expo-file-system';
+
 
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -7,21 +9,77 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
 
-export default function AccountScreen(prop) {
+export default function AccountScreen() {
+
+    const [cuenta, setcuenta] = useState([])
+    const [lista, setlista] = useState([])
+    const [usuario, setusuario] = useState([{'user':"none",'email':"none",'url':"https://w7.pngwing.com/pngs/524/696/png-transparent-computer-icons-user-symbol-symbol-miscellaneous-black-computer-icons.png"}])
+
+    useEffect(() => {
+      cargar()
+      cargarUsuarios()
+      encontrar()
+    }, [])
+    
+
+    const cargar = async () => {
+        try {
+          const file = `${FileSystem.documentDirectory}cuenta.json`
+          const existe = await FileSystem.getInfoAsync(file)
+          if (existe.exists) {
+            const contenido = await FileSystem.readAsStringAsync(file)
+            const datos = JSON.parse(contenido)
+            setcuenta(datos)
+            console.log(datos);
+          }
+    
+        } catch (error) {
+          console.log(error);
+        }
+    
+      }
+
+      const cargarUsuarios = async () => {
+        try {
+          const file = `${FileSystem.documentDirectory}usuarios.json`
+          const existe = await FileSystem.getInfoAsync(file)
+          if (existe.exists) {
+            const contenido = await FileSystem.readAsStringAsync(file)
+            const datos = JSON.parse(contenido)
+            setlista(datos)
+            console.log(datos);
+          }
+    
+        } catch (error) {
+          console.log(error);
+        }
+    
+      }
+
+      function encontrar(){
+        for(let item of lista){
+            if(item.user== cuenta.usuario && item !=null){
+                setusuario(item)
+            }
+        }
+      }
+      
+
+
     
   return (
     <View style={styles.container}>
 
 
     
-    <Image style={styles.img_profile} source={require('../assets/images/profile.jpg')}/>
+    <Image style={styles.img_profile} source={{uri:usuario.url}}/>
     <View style={styles.box}>
         <View>
         <AntDesign style={styles.icon} name="idcard" size={24} color="black" />
         </View>
         <View>
-            <Text style={styles.label}>Nombre Completo</Text>
-            <Text style={styles.info}>Phylip J. Fry</Text>
+            <Text style={styles.label}>Nombre</Text>
+            <Text style={styles.info}>{usuario.user}</Text>
         </View>
     </View>
     <View style={styles.box}>
@@ -29,26 +87,14 @@ export default function AccountScreen(prop) {
         <AntDesign style={styles.icon} name="user" size={24} color="black" />
 
         </View>
-        <View>
-            <Text style={styles.label}>Username</Text>
-            <Text style={styles.info}>fry_01</Text>
-        </View>
+        
     </View>
 
 
     <View styles={styles.categories}>
 
     
-    <View style={styles.box}>
-        <View>
-        <MaterialIcons style={styles.icon}  name="phone-android" size={24} color="black" />
-
-        </View>
-        <View>
-            <Text style={styles.label}>Número de celular</Text>
-            <Text style={styles.info}>0912345678</Text>
-        </View>
-    </View>
+  
 
     <View style={styles.box}>
         <View>
@@ -56,7 +102,7 @@ export default function AccountScreen(prop) {
         </View>
         <View>
             <Text style={styles.label}>Correo electrónico</Text>
-            <Text style={styles.info}>phylip.fry@planetexpress.com</Text>
+            <Text style={styles.info}>{usuario.email}</Text>
         </View>
     </View>
     </View>
