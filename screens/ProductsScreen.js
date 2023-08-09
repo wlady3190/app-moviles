@@ -9,7 +9,7 @@ export default function ProductsScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.textC}>
-      <Text style={styles.title}>Productos</Text>
+      <Text style={styles.title}>CATALOGO</Text>
       </View>
       <FlatList data={motosData} 
       renderItem={renderItem} 
