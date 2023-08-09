@@ -10,7 +10,7 @@ export default function LoginScreen({ navigation }) {
   const [pass, setpass] = useState('')
   const [cuenta, setcuenta] = useState([])
   const [lista, setlista] = useState([])
-console.log(cuenta)
+
 const guardar=async()=>{
 try {
   const file = `${FileSystem.documentDirectory}cuenta.json`
@@ -37,7 +37,7 @@ try {
       if (usuario == item.user) {
         if (pass == item.pass) {
           handleLogin();
-          setcuenta([...cuenta, {usuario,pass}]);
+          setcuenta([{usuario,pass}]);
           guardar();
         } else {
 
