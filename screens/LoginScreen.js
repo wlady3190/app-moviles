@@ -8,18 +8,19 @@ export default function LoginScreen({ navigation }) {
 
   const [user, setuser] = useState('')
   const [pass, setpass] = useState('')
-  const [cuenta, setcuenta] = useState([])
+  // const [cuenta, setcuenta] = useState([])
   const [lista, setlista] = useState([])
+  const [account, setaccount] = useState([])
 
-  const guardar = async () => {
-    try {
-      const file = `${FileSystem.documentDirectory}cuenta.json`
-      await FileSystem.writeAsStringAsync(file, JSON.stringify(cuenta))
-      console.log("datos guardados")
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const guardar = async () => {
+  //   try {
+  //     const file = `${FileSystem.documentDirectory}cuenta.json`
+  //     await FileSystem.writeAsStringAsync(file, JSON.stringify(cuenta))
+  //     console.log("datos guardados")
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
 
 
@@ -27,22 +28,20 @@ export default function LoginScreen({ navigation }) {
     cargar()
   }, [])
 
-  console.log(lista);
+  // console.log(lista);
 
   function login(usuario, pass) {
 
     for (let item of lista) {
       if (usuario == item.user) {
         if (pass == item.pass) {
-          setcuenta([{ usuario, pass }]);
+          // setcuenta([{ usuario, pass }]);
+          // console.log(item);
+          setaccount([item])
           handleLogin();
-        } else {
-
-        }
-      } else {
-
-
-      }
+          break
+        } 
+      } 
 
 
     }
@@ -57,7 +56,7 @@ export default function LoginScreen({ navigation }) {
         const contenido = await FileSystem.readAsStringAsync(file)
         const datos = JSON.parse(contenido)
         setlista(datos)
-        console.log(datos);
+        // console.log(datos);
       }
 
     } catch (error) {
@@ -68,7 +67,9 @@ export default function LoginScreen({ navigation }) {
 
 
   const handleLogin = () => {
-    navigation.navigate('NavStack', { cuenta:[...cuenta,{user, pass}] })
+    navigation.navigate('NavStack', { item:[...account]})
+    // console.log(item);
+    console.log(account);
     // Implement login functionality here.
   };
 

@@ -7,10 +7,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import userJSON from '../assets/data/users.json'
 
-export default function AccountScreen() {
+export default function AccountScreen(props) {
+  console.log(props.route);
 
   const [usuario, setusuario] = useState(userJSON)
-  console.log(usuario);
+  // console.log(usuario);
 
 
   return (

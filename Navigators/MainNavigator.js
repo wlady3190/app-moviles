@@ -27,6 +27,9 @@ function MyStack() {
             <Stack.Screen name="NavStack" component={MyTabs} />
             <Stack.Screen name="Login" component={LoginScreen}/>
             <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="Cart" component={CartScreen} />
+
+            
         </Stack.Navigator>
     );
 }
@@ -42,8 +45,8 @@ function MyTabs() {
                 options={{ tabBarLabel: 'Home', tabBarIcon: () => (<AntDesign name="home" size={24} color="black" />) }} />
             <Tab.Screen name="Products" component={ProductsScreen}
                 options={{ tabBarIcon: () => (<FontAwesome name="motorcycle" size={24} color="black" />) }} />
-                <Tab.Screen name='Cart' component={CartScreen}
-                options={{ tabBarIcon: () => (<AntDesign name="shoppingcart" size={24} color="black" />) }} />
+                {/* <Tab.Screen name='Cart' component={CartScreen}
+                options={{ tabBarIcon: () => (<AntDesign name="shoppingcart" size={24} color="black" />) }} /> */}
             <Tab.Screen name='Account' component={AccountScreen}
                 options={{ tabBarIcon: () => (<FontAwesome5 name="user" size={24} color="black" />) }} />
         </Tab.Navigator>

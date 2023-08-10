@@ -16,7 +16,7 @@ export default function HomeScreen() {
       <ScreenOne />
       <ScreenTwo />
       <ScreenThree />
-      {/* <BottomNavigator/> */}
+
     </Swiper>
 
 
