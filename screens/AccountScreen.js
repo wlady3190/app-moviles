@@ -1,101 +1,43 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import * as FileSystem from 'expo-file-system';
-import { useRoute } from '@react-navigation/native';
-
-
 
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import userJSON from '../assets/data/users.json'
 
 export default function AccountScreen() {
-  // const route = useRoute()
-  // const { cuenta } = route.params;
 
-
-  // console.log(cuenta);
-
-  const [cuentaRegistrada, setcuentaRegistrada] = useState([cuenta])
-  const [lista, setlista] = useState([])
-  const [usuario, setusuario] = useState([{ 'user': "none", 'email': "none", 'url': "https://w7.pngwing.com/pngs/524/696/png-transparent-computer-icons-user-symbol-symbol-miscellaneous-black-computer-icons.png" }])
-
-  useEffect(() => {
-    // cargar()
-    cargarUsuarios()
-    encontrar()
-  }, [])
-
-
-
-  // const cargar = async () => {
-  //   try {
-  //     const file = `${FileSystem.documentDirectory}cuenta.json`
-  //     const existe = await FileSystem.getInfoAsync(file)
-  //     if (existe.exists) {
-  //       const contenido = await FileSystem.readAsStringAsync(file)
-  //       const datos = JSON.parse(contenido)
-  //       setcuenta(datos)
-  //       console.log(datos);
-  //     }
-
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-
-  // }
-
-
-
-  const cargarUsuarios = async () => {
-    try {
-      const file = `${FileSystem.documentDirectory}usuarios.json`
-      const existe = await FileSystem.getInfoAsync(file)
-      if (existe.exists) {
-        const contenido = await FileSystem.readAsStringAsync(file)
-        const datos = JSON.parse(contenido)
-        setlista(datos)
-        console.log(datos);
-      }
-
-    } catch (error) {
-      console.log(error);
-    }
-
-  }
-
-  function encontrar() {
-    for (let item of lista) {
-      if (item.user == cuentaRegistrada.usuario) {
-        setusuario(item)
-      }
-    }
-  }
-
-
+  const [usuario, setusuario] = useState(userJSON)
+  console.log(usuario);
 
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Perfil de usuario</Text>
 
 
 
-      <Image style={styles.img_profile} source={{ uri: usuario.url }} />
+      <Image style={styles.img_profile} source={{ uri: usuario[0].profileImage }} />
       <View style={styles.box}>
         <View>
           <AntDesign style={styles.icon} name="idcard" size={24} color="black" />
         </View>
         <View>
           <Text style={styles.label}>Nombre</Text>
-          <Text style={styles.info}>{usuario.user}</Text>
+          <Text style={styles.info}>{usuario[0].username}</Text>
         </View>
       </View>
       <View style={styles.box}>
         <View>
+          
           <AntDesign style={styles.icon} name="user" size={24} color="black" />
 
+        </View>
+        <View>
+          <Text style={styles.label}>Edad</Text>
+          <Text style={styles.info}>{usuario[0].age}</Text>
         </View>
 
       </View>
@@ -111,8 +53,8 @@ export default function AccountScreen() {
             <AntDesign style={styles.icon} name="mail" size={24} color="black" />
           </View>
           <View>
-            <Text style={styles.label}>Correo electrónico</Text>
-            <Text style={styles.info}>{usuario.email}</Text>
+            <Text style={styles.label}>Correo electrónico: </Text>
+            <Text style={styles.info}>{usuario[0].email}</Text>
           </View>
         </View>
       </View>
@@ -135,6 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 8,
+    alignSelf:'center'
   },
   subtitle: {
     fontSize: 18,

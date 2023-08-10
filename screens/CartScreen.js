@@ -1,24 +1,23 @@
-import { View, Text, FlatList, StyleSheet, Button, Image, ImageBackground, Alert } from 'react-native'
+import { View, Text, FlatList, StyleSheet, Button, Image, ImageBackground, Alert, Modal } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import Tarjeta from '../components/Tarjeta'
 import motosData from '../assets/data/motos.json'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 import { Entypo } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import * as FileSystem from 'expo-file-system'
 import { useCarritoContext } from '../context/CarritoContext'
 import { useRoute } from '@react-navigation/native'
+import ModalCart from '../components/ModalCart'
 
-export default function CartScreen( props ) {
+export default function CartScreen(props) {
   // console.log(props.route.params);
 
 
   const [items, setItems] = useState([])
   const [cantidades, setCantidades] = useState(items.map(() => 0))
-  // const [lista, setlista] = useState([])
+
 
   useEffect(() => {
     setItems(props.route.params.carrito)
@@ -27,8 +26,8 @@ export default function CartScreen( props ) {
 
   useEffect(() => {
     setCantidades(new Array(items.length).fill(0));
-}, [items]);
-  
+  }, [items]);
+
 
   const aumentar = (index) => {
     const nuevasCantidades = [...cantidades];
@@ -57,10 +56,10 @@ export default function CartScreen( props ) {
   return (
     <ImageBackground source={require('../assets/images/fondo2.jpg')} style={styles.container}>
       <Text style={styles.textTitle}>Carrito</Text>
-       <FlatList
+      <FlatList
         data={items}
         // keyExtractor={(item) => item.id.toString()}
-         keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item, index) => index.toString()}
 
         renderItem={({ item, index }) => (
           <View style={styles.card}>
@@ -85,20 +84,13 @@ export default function CartScreen( props ) {
           </View>
         )}
       // keyExtractor={(item) => item.id.toString()}
-      /> 
-
-
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.footerButtonBuy} onPress={() => (comprar())}>
-          <Text style={styles.footerButtonText}>COMPRAR </Text>
-          <MaterialCommunityIcons name="cart-check" size={24} color="black" />
-
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButtonCancel}>
-          <Text style={styles.footerButtonText}>CANCELAR </Text>
-          <MaterialIcons name="remove-shopping-cart" size={24} color="black" />
-        </TouchableOpacity>
+      />
+      <View>
+        <ModalCart items={items} cantidades={cantidades} />
       </View>
+
+
+
     </ImageBackground>
   );
 };
