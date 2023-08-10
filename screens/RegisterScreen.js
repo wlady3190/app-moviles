@@ -4,7 +4,7 @@ import * as FileSystem from 'expo-file-system'
 
 export default function RegisterScreen({ navigation }) {
 
-     
+
 
     const [user, setuser] = useState('')
     const [email, setemail] = useState('')
@@ -32,6 +32,11 @@ export default function RegisterScreen({ navigation }) {
             const file = `${FileSystem.documentDirectory}usuarios.json`
             await FileSystem.writeAsStringAsync(file, JSON.stringify(registros))
             console.log('Datos guardados');
+            const file2 = `${FileSystem.documentDirectory}usuarios.json`
+            await FileSystem.writeAsStringAsync(file2, JSON.stringify(registros))
+            console.log('Datos guardados');
+
+
         } catch (error) {
             console.log(error);
         }
@@ -65,7 +70,6 @@ export default function RegisterScreen({ navigation }) {
             setpass('')
             setpass2('')
             guardar()
-            guardar()
             navigateLogin()
         } else {
             Alert.alert("ADVERTENCIA", "los campos de password deben ser iguales")
@@ -96,7 +100,7 @@ export default function RegisterScreen({ navigation }) {
             <TouchableOpacity style={styles.buttonEnter} onPress={() => (registrar(user, email, url, pass, pass2))}>
                 <Text style={styles.txtButon}>Registrarse</Text>
             </TouchableOpacity>
-            
+
 
         </ImageBackground>
 

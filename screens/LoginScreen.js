@@ -11,17 +11,15 @@ export default function LoginScreen({ navigation }) {
   const [cuenta, setcuenta] = useState([])
   const [lista, setlista] = useState([])
 
-const guardar=async()=>{
-try {
-  const file = `${FileSystem.documentDirectory}cuenta.json`
-  await FileSystem.writeAsStringAsync(file, JSON.stringify(cuenta))
-  console.log("datos guardados")
-
-
-} catch (error) {
-  console.log(error)
-}
-}
+  const guardar = async () => {
+    try {
+      const file = `${FileSystem.documentDirectory}cuenta.json`
+      await FileSystem.writeAsStringAsync(file, JSON.stringify(cuenta))
+      console.log("datos guardados")
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
 
@@ -36,9 +34,8 @@ try {
     for (let item of lista) {
       if (usuario == item.user) {
         if (pass == item.pass) {
+          setcuenta([{ usuario, pass }]);
           handleLogin();
-          setcuenta([{usuario,pass}]);
-          guardar();
         } else {
 
         }
@@ -71,7 +68,7 @@ try {
 
 
   const handleLogin = () => {
-    navigation.navigate('NavStack')
+    navigation.navigate('NavStack', { cuenta:[...cuenta,{user, pass}] })
     // Implement login functionality here.
   };
 
