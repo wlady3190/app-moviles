@@ -8,11 +8,13 @@ import { Entypo } from '@expo/vector-icons';
 
 import * as FileSystem from 'expo-file-system'
 import { useCarritoContext } from '../context/CarritoContext'
-import { useRoute } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import ModalCart from '../components/ModalCart'
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function CartScreen(props) {
   // console.log(props.route.params);
+  const navigation = useNavigation()
 
 
   const [items, setItems] = useState([])
@@ -22,11 +24,18 @@ export default function CartScreen(props) {
   useEffect(() => {
     setItems(props.route.params.carrito)
 
+
   }, [])
 
   useEffect(() => {
     setCantidades(new Array(items.length).fill(0));
   }, [items]);
+
+  // useEffect(() => {
+
+
+  // }, [])
+  
 
 
   const aumentar = (index) => {
@@ -48,6 +57,11 @@ export default function CartScreen(props) {
 
   const comprar = () => {
     console.log(items);
+  }
+
+  function cancelar (){
+    navigation.navigate('Account')
+
   }
 
 
@@ -87,6 +101,11 @@ export default function CartScreen(props) {
       />
       <View>
         <ModalCart items={items} cantidades={cantidades} />
+        <TouchableOpacity style={styles.footerButtonCancel} onPress={() => (setItems([]))} >
+          <Text style={styles.footerButtonText}>CANCELAR </Text>
+          <MaterialIcons name="remove-shopping-cart" size={24} color="black" />
+        </TouchableOpacity>
+        <Button title='Salir' color='red' onPress={()=>(cancelar())}/>
       </View>
 
 
@@ -176,7 +195,8 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom:15
 
   },
   footerButtonText: {

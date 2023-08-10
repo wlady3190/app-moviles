@@ -11,7 +11,7 @@ export default function ModalCart(props) {
     const [modal, setModal] = useState(false)
     const [productos, setProductos] = useState([])
     const [cantidadProductos, setcantidadProductos] = useState([])
-    const [suma, setSuma] = useState(0)
+    const [suma, setSuma] = useState()
 
 
     useEffect(() => {
@@ -38,10 +38,6 @@ export default function ModalCart(props) {
                     <Text style={styles.footerButtonText}>COMPRAR </Text>
                     <MaterialCommunityIcons name="cart-check" size={24} color="black" />
 
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.footerButtonCancel}>
-                    <Text style={styles.footerButtonText}>CANCELAR </Text>
-                    <MaterialIcons name="remove-shopping-cart" size={24} color="black" />
                 </TouchableOpacity>
             </View>
 
@@ -136,7 +132,8 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 20,
         borderRadius: 8,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent:'flex-start'
     },
     footerButtonCancel: {
         backgroundColor: '#d96f41',
@@ -150,6 +147,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: 'black',
+        width:'92%'
     },
     textTitle: {
         fontSize: 25,
