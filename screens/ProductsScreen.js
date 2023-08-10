@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, SafeAreaView
 import React, { useState } from 'react'
 import motosData from '../assets/data/motos.json'
 import MotoCard from '../components/MotoCard';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 export default function ProductsScreen({ navigation }) {
 
   const [carrito, setCarrito] = useState([])
@@ -19,13 +20,21 @@ export default function ProductsScreen({ navigation }) {
     <SafeAreaView style={styles.container}>
       <View style={styles.textC}>
         <Text style={styles.title}>CATALOGO</Text>
+        
+          <TouchableOpacity  onPress={() => (irAlCarrito())}>
+          <View style={styles.iconC}>
+          <MaterialCommunityIcons name="cart-variant" size={24} color="white" />
+        <Text style={styles.marca}>Ir a pagar</Text>
+        </View>
+          </TouchableOpacity>
+      
       </View>
 
       <FlatList
 
         data={motosData}
         renderItem={({ item }) => (
-          <View>
+          <View >
             <MotoCard item={item} />
             <TouchableOpacity style={styles.addToCartButton} onPress={() => (agregar(item))} >
               <Text style={styles.addToCartButtonText}>Añadir al carrito</Text>
@@ -33,7 +42,7 @@ export default function ProductsScreen({ navigation }) {
           </View>
         )}
       />
-      <Button title='Pagar' onPress={() => (irAlCarrito())} />
+      
 
     </SafeAreaView>
   );
@@ -102,6 +111,12 @@ const styles = StyleSheet.create({
   },
   textC: {
     margin: 20,
-    marginTop: 30
+    margin: 30,
+    flexDirection:'row'
   },
+  iconC:{
+  alignItems:'center',
+   marginLeft: '30%'
+
+  }
 });
