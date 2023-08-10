@@ -1,20 +1,119 @@
 [
   {
-    "email": "user5@example.com",
-    "pass": "password5",
-    "url": "https://www.pngmart.com/files/8/Futurama-PNG-HD-Quality.png",
-    "user": "Zoiiberg"
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
   },
   {
-    "email": "user1@example.com",
-    "pass": "password1",
-    "url": "https://i.pinimg.com/originals/dd/1f/8f/dd1f8f344b5e8acc8c26ecf0fb8e32e2.png",
-    "user": "Fry"
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
   },
   {
-    "email": "user2@example.com",
-    "pass": "password2",
-    "url": "https://www.pngmart.com/files/15/Bender-Futurama-PNG.png",
-    "user": "Bender"
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
+  },
+  {
+    "anio": "2023",
+    "descripcion": "Con una potencia combinada térmica y eléctrica de 819 hp (602 kW), el Sián FKP 37 es el Lamborghini más potente jamás producido.",
+    "id": 8,
+    "imagen": "https://images.ctfassets.net/x7j9qwvpvr5s/7svL9IH15sRgo0YKr9ivFs/9d55beb87a46ca724d1d84f40b6e60b9/Diavel-lambo-MY21-Model-Preview-1050x650.png",
+    "marca": "Ducati",
+    "modelo": "DIAVEL 1260 LAMBORGHINI",
+    "precio": 110000
   }
 ]

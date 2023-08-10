@@ -1,5 +1,5 @@
-import { View, Text, FlatList, StyleSheet, Button, Image, ImageBackground } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, FlatList, StyleSheet, Button, Image, ImageBackground, Alert } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import Tarjeta from '../components/Tarjeta'
 import motosData from '../assets/data/motos.json'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -7,14 +7,62 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-export default function CartScreen() {
+
+import * as FileSystem from 'expo-file-system'
+import { useCarritoContext } from '../context/CarritoContext'
+import { useRoute } from '@react-navigation/native'
+
+export default function CartScreen( props ) {
+  // console.log(props.route.params);
+
+
+  const [items, setItems] = useState([])
+  const [cantidades, setCantidades] = useState(items.map(() => 0))
+  // const [lista, setlista] = useState([])
+
+  useEffect(() => {
+    setItems(props.route.params.carrito)
+
+  }, [])
+
+  useEffect(() => {
+    setCantidades(new Array(items.length).fill(0));
+}, [items]);
+  
+
+  const aumentar = (index) => {
+    const nuevasCantidades = [...cantidades];
+    nuevasCantidades[index] += 1;
+    setCantidades(nuevasCantidades);
+    console.log(typeof cantidades);
+  };
+
+  const reducir = (index) => {
+    if (cantidades[index] > 0) {
+      const nuevasCantidades = [...cantidades];
+      nuevasCantidades[index] -= 1;
+      setCantidades(nuevasCantidades);
+    } else {
+      Alert.alert('Limite mínimo alcanzado');
+    }
+  };
+
+  const comprar = () => {
+    console.log(items);
+  }
+
+
+
 
   return (
     <ImageBackground source={require('../assets/images/fondo2.jpg')} style={styles.container}>
       <Text style={styles.textTitle}>Carrito</Text>
-      <FlatList
-        data={motosData}
-        renderItem={({ item }) => (
+       <FlatList
+        data={items}
+        // keyExtractor={(item) => item.id.toString()}
+         keyExtractor={(item, index) => index.toString()}
+
+        renderItem={({ item, index }) => (
           <View style={styles.card}>
             <Image source={{ uri: item.imagen }} style={styles.image} />
             <View style={styles.content}>
@@ -22,12 +70,12 @@ export default function CartScreen() {
               <Text style={styles.price}>Precio: ${item.precio}</Text>
               <View style={styles.quantityContainer}>
                 <TouchableOpacity style={styles.quantityButton}>
-                  <Text style={styles.buttonText}>
+                  <Text style={styles.buttonText} onPress={() => (aumentar(index))}>
                     <Entypo name="triangle-up" size={18} color="#333333" />
                   </Text>
                 </TouchableOpacity>
-                <Text style={styles.buttonText}>1</Text>
-                <TouchableOpacity style={styles.quantityButton}>
+                <Text style={styles.buttonText}>{cantidades[index]}</Text>
+                <TouchableOpacity style={styles.quantityButton} onPress={() => (reducir(index))}>
                   <Text style={styles.buttonText}>
                     <Entypo name="triangle-down" size={18} color="#333333" />
                   </Text>
@@ -36,12 +84,12 @@ export default function CartScreen() {
             </View>
           </View>
         )}
-        keyExtractor={(item) => item.id.toString()}
-      />
+      // keyExtractor={(item) => item.id.toString()}
+      /> 
 
 
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.footerButtonBuy}>
+        <TouchableOpacity style={styles.footerButtonBuy} onPress={() => (comprar())}>
           <Text style={styles.footerButtonText}>COMPRAR </Text>
           <MaterialCommunityIcons name="cart-check" size={24} color="black" />
 
@@ -66,7 +114,7 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent:'center',
+    justifyContent: 'center',
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
     marginBottom: 16,
@@ -82,7 +130,7 @@ const styles = StyleSheet.create({
     height: 100,
     marginRight: 16,
     borderRadius: 4,
-    objectFit:'contain'
+    objectFit: 'contain'
 
 
   },
@@ -119,7 +167,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 24,
-    marginBottom:15
+    marginBottom: 15
     // backgroundColor:'white',
 
 
@@ -129,14 +177,14 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,
-    flexDirection:'row'
+    flexDirection: 'row'
   },
   footerButtonCancel: {
     backgroundColor: '#d96f41',
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,
-    flexDirection:'row'
+    flexDirection: 'row'
 
   },
   footerButtonText: {
@@ -148,6 +196,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     alignSelf: 'center',
     fontWeight: 'bold',
-    color:'white'
+    color: 'white'
   }
 });
