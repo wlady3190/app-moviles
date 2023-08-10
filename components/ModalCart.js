@@ -11,17 +11,17 @@ export default function ModalCart(props) {
     const [modal, setModal] = useState(false)
     const [productos, setProductos] = useState([])
     const [cantidadProductos, setcantidadProductos] = useState([])
-    const [suma, setSuma] = useState()
+    const [suma, setSuma] = useState(0)
 
 
     useEffect(() => {
         setProductos(props.items)
-        setcantidadProductos(props.cantidades)
+        setcantidadProductos(props.cantidades) 
     }, [])
     
     const calcularSumaTotal = () => {
-
         let sumaTotal = 0;
+
         for (let i = 0; i < productos.length; i++) {
             sumaTotal += productos[i].precio * cantidadProductos[i];
             console.log(productos[i].precio);
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     footerButtonText: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: '#FFFFFF',
+        color: 'black',
     },
     textTitle: {
         fontSize: 25,
